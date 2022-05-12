@@ -2,6 +2,6 @@
 
 [![Deploy](https://github.com/lutfi98abdullah/miniproject1/actions/workflows/pipeline2.yaml/badge.svg)](https://github.com/lutfi98abdullah/miniproject1/actions/workflows/deploy.yaml)
 
-![Coverage](https://dumpbucket.sgp1.digitaloceanspaces.com/coverage/miniproject1/jacoco.svg)
+![Coverage](https://myuniquespace.sgp1.digitaloceanspaces.com/coverage/miniproject1/jacoco.svg)
 
 ![Coverage](.github/badges/jacoco.svg)
