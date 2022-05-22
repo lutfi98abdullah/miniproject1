@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 
 import java.util.List;
 
+@RequestMapping
 @Controller
 public class AnimeController {
 
@@ -22,7 +24,7 @@ public class AnimeController {
         this.service = service;
     }
 
-    @RequestMapping(value = "search", method = RequestMethod.POST)
+    @PostMapping(path = "search")
     public String searchFlight(@ModelAttribute("search") Search search, Model model) {
         List<Anime> animeList = service.search(search);
         if (animeList.isEmpty()) {
