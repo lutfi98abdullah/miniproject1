@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Anime</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+         body {
+         font-family: "Lato", sans-serif;
+         }
+         .main-head{
+         height: 150px;
+         background: #FFF;
+         }
+
+         .sidenav {
+         height: 100%;
+         background-image: url("https://wallpaperaccess.com/full/1212229.jpg");
+         -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+         padding-top: 20px;
+         }
+         .main {
+         padding: 0px 10px;
+         }
+         @media screen and (max-height: 450px) {
+         .sidenav {padding-top: 15px;}
+         }
+         @media screen and (max-width: 450px) {
+         .login-form{
+         margin-top: 10%;
+         }
+         .register-form{
+         margin-top: 10%;
+         }
+         }
+         @media screen and (min-width: 768px){
+         .main{
+         margin-left: 40%;
+         }
+         .sidenav{
+         width: 40%;
+         position: fixed;
+         z-index: 1;
+         top: 0;
+         left: 0;
+         }
+         .login-form{
+         margin-top: 60%;
+         }
+         .register-form{
+         margin-top: 20%;
+         }
+         }
+         .login-main-text{
+         margin-top: 20%;
+         padding: 60px;
+         color: #fff;
+         }
+         .login-main-text h2{
+         font-weight: 300;
+         }
+         .btn-black{
+         background-color: #000 !important;
+         color: #fff;
+         }
+
+         .title {
+            font-size: 100px;
+            font-weight: bolder;
+            color: white;
+            font-family: cursive;
+         }
+    </style>
+</head>
+<body>
+<div class="sidenav">
+    <div class="login-main-text">
+        <h1 class="title">Anime<br> Otaku</h1>
+        <p>Login here to access the application</p>
+    </div>
+</div>
+<div class="main">
+    <div class="col-md-6 col-sm-12">
+        <div class="login-form">
+            <form action="#" method="POST" th:action="@{/login}"
+                  th:object="${user}">
+                <div class="form-group">
+                    <label>User Name</label>
+                    <input type="text" class="form-control" placeholder="User Name" th:field="*{username}">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="Password" th:field="*{password}">
+                </div>
+                <button type="submit" class="btn btn-black">Login</button>
+            </form>
+            <br>
+            <a th:href="@{/registerPage}">Not a member. Register Here!</a>
+            <br>
+            <h4 th:if="${showErrorMessage}">Invalid Username or Password!</h4>
+        </div>
+    </div>
+</div>
+</body>
+</html>
