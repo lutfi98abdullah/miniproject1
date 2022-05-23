@@ -179,7 +179,7 @@ input[type="submit"] {
             <thead>
             <tr>
                 <th>Title</th>
-                <th>Japanese Title</th>
+               
                 <th>Image</th>
                 <th>Synopsis</th>
                 <th>Start Date</th>
@@ -190,7 +190,7 @@ input[type="submit"] {
             <tbody>
             <tr th:each="anime:${animes}">
                 <td th:text="${anime.title_en}"></td>
-                <td th:text="${anime.title_jp}"></td>
+                
                 <td> <img th:src="${anime.imageLink}" width="150" height="200"></td>
                 <td th:text="${anime.synopsis}"></td>
                 <td th:text="${anime.startDate}"></td>

@@ -2,12 +2,17 @@ package vttp.miniproject1.Services;
 
 import vttp.miniproject1.Models.Anime;
 import vttp.miniproject1.Models.Search;
+import vttp.miniproject1.Repositories.AnimeRepository;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -19,10 +24,14 @@ public class SearchService {
     private RestTemplate restTemplate;
 
     @Autowired
+    private AnimeRepository animeRepository;
+
+    @Autowired
     public SearchService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
+    @Transactional
     public List<Anime> search(Search search) {
         String url
                 = "https://kitsu.io/api/edge/anime?filter[text]=" + search.getName();
@@ -44,8 +53,18 @@ public class SearchService {
                 System.out.println(e);
                 continue;
             }
+
+            vttp.miniproject1.Entity.Anime animEntity = new vttp.miniproject1.Entity.Anime();
+            BeanUtils.copyProperties(anime, animEntity);
             animeList.add(anime);
+
+            animEntity.setUserId(1);
+
+            animeRepository.save(animEntity);
         }
+
+        // get the user
+        // save the animes
 
         return animeList;
     }

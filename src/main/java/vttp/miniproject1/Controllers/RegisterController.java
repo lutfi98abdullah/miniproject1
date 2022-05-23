@@ -1,17 +1,16 @@
 package vttp.miniproject1.Controllers;
 
-import vttp.miniproject1.Models.User;
+import vttp.miniproject1.Entity.User;
 import vttp.miniproject1.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 
-@RequestMapping
+
 @Controller
 public class RegisterController {
 
@@ -22,7 +21,7 @@ public class RegisterController {
         this.userService = userService;
     }
 
-    @GetMapping(path = "/registerPage")
+    @RequestMapping(value = "/registerPage", method = RequestMethod.GET)
     public String getRegisterPage(Model model) {
         User user = new User();
         model.addAttribute("user", user);
@@ -31,7 +30,7 @@ public class RegisterController {
         return "register";
     }
 
-    @PostMapping(path = "/register")
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@ModelAttribute("user") User user, Model model) {
         String output = userService.register(user);
         if (output == null) {

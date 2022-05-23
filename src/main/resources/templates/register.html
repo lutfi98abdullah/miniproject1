@@ -79,7 +79,7 @@
 <body>
 <div class="sidenav">
     <div class="login-main-text">
-        <h1 class="title">Anime<br>Otaku</h1>
+        <h1 class="title">Anime<br>List</h1>
         <p>If you are new to application, Register here!</p>
     </div>
 </div>
@@ -90,15 +90,15 @@
                   th:object="${user}">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" placeholder="Name" th:field="*{name}">
+                    <input type="text" class="form-control" placeholder="Name" th:field="*{name}" required>
                 </div>
                 <div class="form-group">
                     <label>User Name</label>
-                    <input type="text" class="form-control" placeholder="User Name" th:field="*{username}">
+                    <input type="text" class="form-control" placeholder="User Name" th:field="*{username}" required>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Password" th:field="*{password}">
+                    <input type="password" class="form-control" placeholder="Password" th:field="*{password}" required>
                 </div>
                 <button type="submit" class="btn btn-black">Register</button>
             </form>

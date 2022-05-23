@@ -1,6 +1,6 @@
 package vttp.miniproject1.Services;
 
-import vttp.miniproject1.Models.User;
+import vttp.miniproject1.Entity.User;
 import vttp.miniproject1.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +29,7 @@ public class UserService {
         if (userDetailsOptional.isPresent()) {
             return null;
         }
-        userRepository.save(User);
+        userRepository.save(user);
         return "success";
     }
 }

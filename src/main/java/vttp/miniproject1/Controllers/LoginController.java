@@ -1,9 +1,9 @@
 package vttp.miniproject1.Controllers;
 
 
+import vttp.miniproject1.Entity.User;
 import vttp.miniproject1.Models.Anime;
 import vttp.miniproject1.Models.Search;
-import vttp.miniproject1.Models.User;
 import vttp.miniproject1.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
